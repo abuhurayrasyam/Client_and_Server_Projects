@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { use } from "react";
+import { Link } from "react-router";
 
 const Users = ({usersPromise}) => {
 
@@ -59,7 +60,7 @@ const Users = ({usersPromise}) => {
                 <input type="submit" value="Add" />
             </form>
             {
-                users.map(user => <h4 key={user._id}>{user.name} : {user.email} <button onClick={() => handleDeleteUser(user._id)}>x</button></h4>)
+                users.map(user => <h4 key={user._id}>{user.name} : {user.email} <Link to={`/users/${user._id}`}>Details</Link> <button onClick={() => handleDeleteUser(user._id)}>x</button></h4>)
             }
         </div>
     );
